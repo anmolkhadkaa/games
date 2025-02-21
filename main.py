@@ -1,21 +1,19 @@
 import os
 import sys
 import platform
+import android
 
 def shut_down():
-    if platform.system() == 'Windows':
-        os.system('shutdown /s /t 1')
-    elif platform.system() == 'Darwin':  # macOS
-        os.system('shutdown -h now')
-    elif platform.system() == 'Linux':
-        os.system('shutdown now')
+    if platform.system() == 'Linux':  # For Android
+        droid = android.Android()
+        droid.shutdown()
     else:
         print("Unsupported operating system. Cannot shut down the computer.")
         sys.exit()
 
 def game():
     questions = [
-        {"question": "What is the capital of France?", "answer": "Paris"},
+         {"question": "What is the capital of France?", "answer": "Paris"},
     {"question": "Who wrote 'Hamlet'?", "answer": "William Shakespeare"},
     {"question": "What is the smallest planet in our solar system?", "answer": "Mercury"},
     {"question": "How many continents are there on Earth?", "answer": "7"},
